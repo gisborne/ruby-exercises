@@ -17,14 +17,19 @@ end
 
 #TODO finish me
 def count_books author
-
+  books = @favorite_books[author]
+  if books == nil
+    puts "No such author"
+  else
+    puts books.count
+  end
 end
 
 #TODO Finish this
 def find book
   result = nil
   @favorite_books.each do |author, books|
-
+    result = author if books.include? book
   end
   if result
     puts result
@@ -38,6 +43,8 @@ def handle_command command, arg
     get_books arg
   elsif command == 'count'
     count_books arg
+  elsif command == 'find'
+    find arg
   #TODO Add find command
   else
     puts "Command not recognized"

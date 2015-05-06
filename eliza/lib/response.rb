@@ -1,6 +1,6 @@
 class Response
   @@responses = []
-
+  @@dummies = []
   def self.add_response question, *answers
     @@responses << new(question, answers)
   end
@@ -10,7 +10,7 @@ class Response
     if responses.length > 0
       responses.sample.get_answers.sample
     else
-      "Go on."
+      @@dummies.sample
     end
   end
 
@@ -25,5 +25,8 @@ class Response
 
   def get_answers
     @answers
+  end
+  def self.add_dummies *dummies
+    @@dummies += dummies
   end
 end

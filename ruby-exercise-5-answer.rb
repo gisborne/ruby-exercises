@@ -8,7 +8,7 @@ clancy_words = clancy.split /\W+/
 
 #A set is a data structure that can have things added and removed, and you can ask if things are in it. You can make one from an array
 words = File.read('/usr/share/dict/words').lines.map{|w| w.chomp}
-words = words.select{|word| word[0] > 'a' && word[0] < 'z'}
+words = words.select{|word| word[0] >= 'a' && word[0] <= 'z'}
 Dictionary = Set.new words
 
 def in_dictionary? word
