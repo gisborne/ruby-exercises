@@ -5,12 +5,13 @@
   'William Goldman' => ['The Princess Bride']
 }
 
+
 def get_books author
   books = @favorite_books[author]
-  if books == nil
-    puts "No such author"
+  if author == nil
+    puts "No such book"
   else
-    puts books.join ', '
+    puts books.join ", "
   end
 end
 
@@ -23,6 +24,7 @@ def count_books author
   end
 end
 
+
 def find book
   result = nil
   @favorite_books.each do |author, books|
@@ -33,17 +35,18 @@ def find book
   if result
     puts result
   else
-    puts "No such book"
+    puts "No such book in the system"
   end
 end
+
 
 def add_book author, title
   books = @favorite_books[author]
   if books
     if books.include? title
       puts "This book is already in the database."
-    else books
-      author << title
+    else
+      books << title
     end
   else
     @favorite_books[author] = [title]
