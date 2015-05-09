@@ -15,17 +15,57 @@ def get_books author
   end
 end
 
+
+
+
+
+
+
+def get_books author
+  books =@favorite_books[author]
+  if books == nil
+    puts "No author exists"
+  else
+    puts books.join ', '
+  end
+end
+
+
+
+
+
 #TODO finish me
+
 def count_books author
   books = @favorite_books[author]
   if books == nil
     puts "No such author"
   else
-    puts books.count
-  end
+    puts books.length
 end
 
+
+
+
 #TODO Finish this
+
+def find book
+  result = nil
+  @favorite_books.each do |author, books|
+    result = author if books.include? book
+  end
+    if result
+      puts result
+    else
+      puts "No such book"
+    end
+end
+
+
+
+
+
+
 def find book
   result = nil
   @favorite_books.each do |author, books|

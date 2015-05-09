@@ -22,6 +22,8 @@ puts (clancy_words - snowy_words).uniq.join ', '
 
 puts
 puts "The longest word in snowy is"
+puts snowy_words.sort_by {|word|}
+
 
 puts "#{snowy_words.sort_by{|word| word.length}.last}"
 

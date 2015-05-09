@@ -14,6 +14,7 @@ def get_books author
   end
 end
 
+
 def count_books author
   books = @favorite_books[author]
   if books == nil
